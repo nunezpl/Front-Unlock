@@ -20,4 +20,11 @@ export class EventoService {
     return this.http.get<Evento>(`https://eventmanagmentcontainer-production.up.railway.app/events/eventos/` + id);
   }
 
+  // Método para cambiar el estado de un evento
+  actualizarEstadoEvento(event: Evento, estado: string): void {
+    event.status = estado;
+    // Aquí puedes agregar lógica para actualizar el estado en una base de datos
+    console.log(`El estado del evento ${event.name} ha sido actualizado a ${estado}`);
+  }
+
 }

@@ -9,6 +9,7 @@ import { ReservaComponent } from './reserva/reserva.component';
 import { UserloginComponent } from './usuario/userlogin/userlogin.component';
 import { ExitosoComponent } from './registro/exitoso/exitoso.component';
 import { AdminPageComponent } from './administrador/admin-page/admin-page.component';
+import { UserPageComponent } from './usuario/user-page/user-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'reserva', component: ReservaComponent},
   { path: 'registro/exito', component: ExitosoComponent},
 
-  { path: 'admin', component: AdminPageComponent }
+  { path: 'admin', component: AdminPageComponent },
+  { path: 'user', component: UserPageComponent}
 
 ];
 

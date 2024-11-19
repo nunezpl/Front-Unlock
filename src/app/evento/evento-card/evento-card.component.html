@@ -45,6 +45,7 @@
             *ngIf="selectedEvent"
             [location]="selectedEvent.place"
             [date]="selectedEvent.date"
+            [evento]="selectedEvent"
             (close)="closeReservationModal()"
         ></app-reserva>
     </div>

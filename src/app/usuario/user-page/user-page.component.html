@@ -1,0 +1,38 @@
+<main class="main">
+    <div>
+      <div class="outer-container">
+        <div class="title-button-container">
+          <h1>Eventos reservados</h1>
+        </div>
+      </div>
+  
+      <!-- Contenedor de cartas -->
+      <div class="cards-container">
+        <!-- Genera las tarjetas filtrando por búsqueda -->
+        <div *ngFor="let event of events" class="card">
+          <img [src]="event.urlImage" alt="{{ event.name }}" class="card-image" />
+          <div class="card-content">
+            <h3 class="card-title">{{ event.name }}</h3>
+            <p class="card-place">Lugar: {{ event.place }}</p>
+            <p class="card-date">Fecha: {{ event.date | date:'dd/MM/yyyy' }}</p>
+            <p class="card-price">Precio: {{ event.price | currency }}</p>
+            <p class="card-aforo">Aforo: {{ event.aforo }}</p>
+            <p class="card-status">
+              Estado: {{ event.status === 'Activo' ? 'Activo' : 'Inactivo' }}
+            </p>
+          </div>
+          <div class="card-actions">
+            <!-- Botón que aparece si el evento está activo -->
+            <button *ngIf="event.status === 'Inactivo'" class="btn btn-info" (click)="entrarEvento(event)">
+              Entrar
+            </button>
+            <!-- Botón que aparece si el evento está inactivo -->
+            <button *ngIf="event.status === 'Activo'" class="btn btn-danger" (click)="salirEvento(event)">
+              Salir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  

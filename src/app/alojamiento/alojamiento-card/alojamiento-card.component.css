@@ -81,6 +81,8 @@
     font-size: 1em; /* Tamaño de la fuente */
     text-align: center;
     text-decoration: none;
+    border: none; /* Elimina el borde */
+    outline: none; /* Elimina el contorno cuando se enfoca */
     display: inline-block;
     margin: 5px 2px;
     cursor: pointer;

@@ -18,6 +18,7 @@ import { ReservaComponent } from './reserva/reserva.component';
 import { UserloginComponent } from './usuario/userlogin/userlogin.component';
 import { ExitosoComponent } from './registro/exitoso/exitoso.component';
 import { AdminPageComponent } from './administrador/admin-page/admin-page.component';
+import { UserPageComponent } from './usuario/user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AdminPageComponent } from './administrador/admin-page/admin-page.compon
     ReservaComponent,
     UserloginComponent,
     ExitosoComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,8 @@ import { EventoService } from 'src/app/service/evento.service';
 export class EventoCardComponent {
 
   @Output() close = new EventEmitter<void>();
-  selectedEvent: Evento | null = null; // Evento actualmente seleccionado para reservar
+  @Output() eventoSeleccionado = new EventEmitter<Evento>();  // Nuevo Output para pasar el evento
+  selectedEvent: Evento | null = null; // Evento seleccionado
   searchQuery: string = '';
   events: Evento[] = [
     {
@@ -34,7 +35,6 @@ export class EventoCardComponent {
       aforo: 50,
       status: 'inactivo'
     }
-    // Agrega más eventos aquí
   ];
 
   // Inyectar dependencias
@@ -51,26 +51,14 @@ export class EventoCardComponent {
     );
   }
 
-  // Eliminar un evento
-  deleteEvent(event: Evento): void {
-    const index = this.events.indexOf(event);
-    if (index > -1) {
-      this.events.splice(index, 1);
-      console.log(`Evento eliminado: ${event.name}`);
-    }
-  }
-
   // Abrir modal de reserva
   openReservationModal(event: Evento): void {
     this.selectedEvent = event; // Almacena el evento seleccionado
+    this.eventoSeleccionado.emit(event);  // Emite el evento seleccionado al padre
   }
 
   // Cerrar modal de reserva
-  closeReservationModal(): void {
-    this.selectedEvent = null; // Limpia el evento seleccionado
-  }
-
-  closeModal() {
-    this.close.emit(); // Emitir evento para notificar al componente padre
+  closeReservationModal() {
+    this.close.emit(); // Emite el evento para cerrar el modal
   }
 }

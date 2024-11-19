@@ -13,7 +13,7 @@ export class ReservaComponent {
   @Input() date: string | Date = new Date(); // Acepta `string` o `Date`
   @Input() evento: Evento | null = null; // El evento que se reserva
   @Output() onReservaRealizada = new EventEmitter<Registro>();
-  @Output() close = new EventEmitter<void>();
+  @Output() close = new EventEmitter<void>();  // Emisión para cerrar el modal
 
   // Usuario quemado
   usuario: Usuario = {
