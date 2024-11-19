@@ -23,13 +23,13 @@
         <div class="cards-container">
             <!-- Genera las tarjetas filtrando por búsqueda -->
             <div *ngFor="let event of filteredEvents()" class="card">
-                <img [src]="event.urlImage" alt="{{ event.name }}" class="card-image" />
+                <img [src]="event.imagen_url" alt="{{ event.nombre }}" class="card-image" />
                 <div class="card-content">
-                    <h3 class="card-title">{{ event.name }}</h3>
-                    <p class="card-place">Lugar: {{ event.place }}</p>
-                    <p class="card-date">Fecha: {{ event.date }}</p>
-                    <p class="card-price">Precio: {{ event.price | currency }}</p>
-                    <p class="card-aforo">Aforo: {{ event.aforo }}</p>
+                    <h3 class="card-title">{{ event.nombre }}</h3>
+                    <p class="card-place">Lugar: {{ event.ciudad }}</p>
+                    <p class="card-date">Fecha: {{ event.fecha_hora }}</p>
+                    <p class="card-price">Precio: {{ event.precio | currency }}</p>
+                    <p class="card-aforo">Aforo: {{ event.aforo_evento }}</p>
                     <p class="card-status">
                         Estado: {{ event.status === 'Activo' ? 'Activo' : 'Inactivo' }}
                     </p>
@@ -43,8 +43,8 @@
         <!-- Modal de Reservar -->
         <app-reserva
             *ngIf="selectedEvent"
-            [location]="selectedEvent.place"
-            [date]="selectedEvent.date"
+            [location]="selectedEvent.ciudad"
+            [date]="selectedEvent.fecha_hora"
             [evento]="selectedEvent"
             (close)="closeReservationModal()"
         ></app-reserva>

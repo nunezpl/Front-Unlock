@@ -14,28 +14,7 @@ export class EventoCardComponent {
   @Output() eventoSeleccionado = new EventEmitter<Evento>();  // Nuevo Output para pasar el evento
   selectedEvent: Evento | null = null; // Evento seleccionado
   searchQuery: string = '';
-  events: Evento[] = [
-    {
-      id: 1,
-      name: 'Concierto de Rock',
-      urlImage: 'https://www.radioacktiva.com/wp-content/uploads/2024/01/rock-10124.jpg',
-      place: 'Auditorio Nacional',
-      date: new Date('2024-11-20'),
-      price: 50000,
-      aforo: 100,
-      status: 'activo'
-    },
-    {
-      id: 2,
-      name: 'Feria de Arte',
-      urlImage: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiN1l4jSroppz08Mf3aSTTaC-7039tPOvUELeRrIKEA01O5mS9mTanQQTD9TERjvDnDwEwr3wRWbOMgwf6k7Up4I1T2g6O58KEZVLJ55IF02ECoK7rdbvKx5HlzC-dnLcqnKtR6mIhJkyiF/s1600/resized_650x365_origimage_502443.jpg',
-      place: 'Centro Cultural',
-      date: new Date('2024-12-05'),
-      price: 20000,
-      aforo: 50,
-      status: 'inactivo'
-    }
-  ];
+  events: Evento[] = [];
 
   // Inyectar dependencias
   constructor(
@@ -44,10 +23,25 @@ export class EventoCardComponent {
     private cdr: ChangeDetectorRef
   ) {}
 
+  ngOnInit(): void{
+    this.route.paramMap.subscribe(params => {
+      this.eventoService.findAll().subscribe(
+        (data) => {
+          this.events = data; // Asignar los datos de eventos
+          this.cdr.detectChanges(); // Detectar cambios si es necesario
+          console.log('Eventos obtenidos', this.events)
+        },
+        (error) => {
+          console.error('Error al obtener los eventos', error); // Manejar errores
+        }
+      );
+    });
+  }
+
   // Filtrar eventos según el texto de búsqueda
   filteredEvents(): Evento[] {
     return this.events.filter(event =>
-      event.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+      event.nombre.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
 

@@ -24,7 +24,7 @@ export class EventoService {
   actualizarEstadoEvento(event: Evento, estado: string): void {
     event.status = estado;
     // Aquí puedes agregar lógica para actualizar el estado en una base de datos
-    console.log(`El estado del evento ${event.name} ha sido actualizado a ${estado}`);
+    console.log(`El estado del evento ${event.nombre} ha sido actualizado a ${estado}`);
   }
 
 }

@@ -1,10 +1,11 @@
 export interface Evento {
     id: number;
-    name: string;
-    urlImage: string;
-    place: string;
-    date: Date;
-    price: number;
-    aforo: number;
+    nombre: string;
+    imagen_url: string;
+    ciudad: string;
+    estado: string;
+    fecha_hora: Date;
+    precio: number;
+    aforo_evento: number;
     status: string;
 }
