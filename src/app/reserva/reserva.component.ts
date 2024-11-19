@@ -10,11 +10,19 @@ import { Registro } from '../registro/registro';
 })
 export class ReservaComponent {
   @Input() location: string = '';
-  @Input() date: string | Date = new Date(); // Acepta tanto `string` como `Date`
-  @Input() usuario: Usuario | null = null; // Se recibe el usuario desde el padre
-  @Input() evento: Evento | null = null; // Se recibe el evento desde el padre
+  @Input() date: string | Date = new Date(); // Acepta `string` o `Date`
+  @Input() evento: Evento | null = null; // El evento que se reserva
   @Output() onReservaRealizada = new EventEmitter<Registro>();
-  @Output() close = new EventEmitter<void>(); // Para cerrar el modal
+  @Output() close = new EventEmitter<void>();
+
+  // Usuario quemado
+  usuario: Usuario = {
+    id: 1,
+    name: 'Juan Pérez',
+    mail: 'juan.perez@mail.com',
+    phone: 31212312,
+    status: 'activo'
+  };
 
   adultsCount: number = 1;
 
@@ -29,10 +37,10 @@ export class ReservaComponent {
   }
 
   reservar(): void {
-    if (this.usuario && this.evento) {
+    if (this.evento) {
       const registro: Registro = {
         id: Math.floor(Math.random() * 1000000), // ID generado aleatoriamente
-        usuario: this.usuario,
+        usuario: this.usuario, // Usuario quemado
         evento: this.evento,
         fechaRegistro: new Date().toISOString(),
         estadoPago: 'Pendiente',
@@ -41,7 +49,7 @@ export class ReservaComponent {
       alert(`Reserva realizada para ${this.adultsCount} personas en ${this.location} el ${this.date}.`);
       this.onReservaRealizada.emit(registro);
     } else {
-      alert('Falta información del evento o usuario.');
+      alert('No hay evento seleccionado para la reserva.');
     }
   }
 

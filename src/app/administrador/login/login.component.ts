@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { LoginService } from '../service/login.service';
+import { LoginService } from '../../service/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar'; // Importar MatSnackBar
 
 @Component({
@@ -26,7 +26,7 @@ export class LoginComponent {
       this.loginService.loginAdmin(username, password).subscribe({
         next: (response) => {
           console.log('Inicio de sesión exitoso', response);
-          // Redirigir a la página de perfil del propietario (owner) después de un inicio de sesión exitoso
+          // Redirigir a la página de perfil del admin después de un inicio de sesión exitoso
           const urlProfile = `/admin`;
           this.router.navigate([urlProfile]);  // Redirigir a la URL construida
           

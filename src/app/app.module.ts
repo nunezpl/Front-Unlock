@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './basic/header/header.component';
 import { FooterComponent } from './basic/footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './administrador/login/login.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +17,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { ReservaComponent } from './reserva/reserva.component';
 import { UserloginComponent } from './usuario/userlogin/userlogin.component';
 import { ExitosoComponent } from './registro/exitoso/exitoso.component';
+import { AdminPageComponent } from './administrador/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ExitosoComponent } from './registro/exitoso/exitoso.component';
     ContactoComponent,
     ReservaComponent,
     UserloginComponent,
-    ExitosoComponent
+    ExitosoComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
