@@ -20,6 +20,7 @@ import { ExitosoComponent } from './registro/exitoso/exitoso.component';
 import { AdminPageComponent } from './administrador/admin-page/admin-page.component';
 import { UserPageComponent } from './usuario/user-page/user-page.component';
 import { CommonModule } from '@angular/common';
+import { AuthInterceptor } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,11 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
