@@ -1,0 +1,51 @@
+<main class="main">
+    <div>
+        <div class="outer-container">
+            <div class="title-button-container">
+                <h1>Eventos</h1>
+                <div class="button-container">
+                    <a [routerLink]="['/event/add']" class="btn btn-info" id="btnAgregarEvento">Agregar</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de búsqueda -->
+        <div class="search-container">
+            <input
+                type="text"
+                [(ngModel)]="searchQuery"
+                placeholder="Buscar evento por nombre..."
+                class="search-input"
+            />
+        </div>
+
+        <!-- Contenedor de cartas -->
+        <div class="cards-container">
+            <!-- Genera las tarjetas filtrando por búsqueda -->
+            <div *ngFor="let event of filteredEvents()" class="card">
+                <img [src]="event.urlImage" alt="{{ event.name }}" class="card-image" />
+                <div class="card-content">
+                    <h3 class="card-title">{{ event.name }}</h3>
+                    <p class="card-place">Lugar: {{ event.place }}</p>
+                    <p class="card-date">Fecha: {{ event.date }}</p>
+                    <p class="card-price">Precio: {{ event.price | currency }}</p>
+                    <p class="card-aforo">Aforo: {{ event.aforo }}</p>
+                    <p class="card-status">
+                        Estado: {{ event.status === 'Activo' ? 'Activo' : 'Inactivo' }}
+                    </p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-info" (click)="openReservationModal(event)">Reservar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Reservar -->
+        <app-reserva
+            *ngIf="selectedEvent"
+            [location]="selectedEvent.place"
+            [date]="selectedEvent.date"
+            (close)="closeReservationModal()"
+        ></app-reserva>
+    </div>
+</main>

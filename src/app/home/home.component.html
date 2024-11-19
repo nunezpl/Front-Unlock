@@ -1,0 +1,26 @@
+<main class="main">
+    <div id="welcome">
+        <h1>¡Bienvenido a UnLock!</h1>
+    </div>
+    <div id="background-section">
+        <!-- Imagen de fondo mediante CSS -->
+        <h1>"La calidad de nuestro servicio se refleja en la atención que damos. Gracias por tu compromiso y pasión."</h1>
+    </div>
+    <div id="options">
+        <h2>¿Qué quieres hacer?</h2>
+        <div class="option-container">
+            <div class="option1">
+                <a [routerLink]="['/eventos']">
+                    <img src="../../assets/images/eventoIcono.png" alt="Eventos">
+                    <h3>Eventos</h3>
+                </a>
+            </div>
+            <div class="option2">
+                <a [routerLink]="['/alojamientos']">
+                    <img src="../../assets/images/alojamientoIcono.png" alt="Alojamientos">
+                    <h3>Alojamientos</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,35 @@
+<main class="main">
+    <div>
+        <div class="outer-container">
+            <div class="title-button-container">
+                <h1>Alojamientos</h1>
+                <div class="button-container">
+                    <a [routerLink]="['/alojamiento/add']" class="btn btn-info" id="btnAgregarAlojamiento">Agregar</a>
+                </div>    
+            </div>
+        </div>   
+
+        <!-- Barra de búsqueda -->
+        <div class="search-container">
+            <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar alojamiento por nombre..." class="search-input">
+        </div>
+
+        <!-- Contenedor de cartas -->
+        <div class="cards-container">
+            <!-- Genera las tarjetas filtrando por búsqueda -->
+            <div *ngFor="let alojamiento of filteredAlojamientos()" class="card">
+                <img [src]="alojamiento.urlImage" alt="{{alojamiento.name}}" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">{{alojamiento.name}}</h3>
+                    <p class="card-place">Lugar: {{alojamiento.ciudad}}</p>
+                    <p class="card-date">Direccion: {{alojamiento.direccion}}</p>
+                    <p class="card-price">Precio: {{alojamiento.price | currency}}</p>
+                    <p class="card-status">Estado: {{ alojamiento.status ? 'Disponible' : 'No disponible' }}</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-info" (click)="reserveAlojamiento(alojamiento)">Reservar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

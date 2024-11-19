@@ -1,0 +1,24 @@
+<div class="modal">
+  <div class="modal-header">
+    <h2>Asistir</h2>
+    <button class="close-button" (click)="closeModal()">&times;</button>
+  </div>
+  <div class="field">
+    <label for="location">Location</label>
+    <input type="text" id="location" [value]="location" readonly>
+  </div>
+  <div class="field">
+    <label for="date">Date</label>
+    <input type="text" id="date" [value]="(date | date: 'MMMM d, y')" readonly>
+  </div>
+  <div class="field">
+    <label>How many guests?</label>
+    <div class="guest-counter">
+      <span>People</span>
+      <button (click)="decrement()">-</button>
+      <span>{{ adultsCount }}</span>
+      <button (click)="increment()">+</button>
+    </div>
+  </div>
+  <button class="reserve-button" (click)="reservar()">Reservar</button>
+</div>
