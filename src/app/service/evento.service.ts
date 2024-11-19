@@ -13,7 +13,7 @@ export class EventoService {
   ) { }
 
   findAll(): Observable<Evento[]> {
-    return this.http.get<Evento[]>(`https://eventmanagmentcontainer-production.up.railway.app/events/eventos`);
+    return this.http.get<Evento[]>(`https://eventmanagmentcontainer-production.up.railway.app/events/eventos/`);
   }
 
   findById(id: number): Observable<Evento> {

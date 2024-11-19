@@ -19,6 +19,7 @@ import { UserloginComponent } from './usuario/userlogin/userlogin.component';
 import { ExitosoComponent } from './registro/exitoso/exitoso.component';
 import { AdminPageComponent } from './administrador/admin-page/admin-page.component';
 import { UserPageComponent } from './usuario/user-page/user-page.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { UserPageComponent } from './usuario/user-page/user-page.component';
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    CommonModule,
     HttpClientModule,
     MatSnackBarModule
   ],
