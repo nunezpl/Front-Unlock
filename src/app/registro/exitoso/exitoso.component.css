@@ -1,3 +1,11 @@
+* {
+    font-family: 'Lexend', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
 /* Contenedor principal */
 .main{
     margin-top: 140px;
@@ -6,18 +14,7 @@
   }
   
 
-.outer-container {
-    display: flex;
-    justify-content: center; /* Centra el contenedor horizontalmente */
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
-}
-
-.title-button-container {
-    display: flex;
-    align-items: center; /* Alinea verticalmente el botón con el título */
-    gap: 15px; /* Espacio horizontal entre el título y el botón */
-}
-
+  
 /* Título principal */
 .main h1 {
     color: #62B2D7; 
@@ -28,168 +25,120 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-/* Botones de acciones (Editar, Eliminar, Agregar) */
-.main .btn {
-    padding: 8px 14px; /* Aumentar ligeramente el padding */
-    border-radius: 5px;
-    font-size: 1em; /* Tamaño de la fuente */
+  /* Contenedor principal de la página de éxito */
+.success-container {
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 5px 2px;
-    cursor: pointer;
-    font-weight: bold;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
-.main .btn-info {
-    background-color: #62B2D7;
-    color: white;
+/* Título principal */
+.success-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.main .btn-info:hover {
-    background-color: #62B2D7;
+/* Texto principal */
+.success-container p {
+    font-size: 1.1em;
+    color: #495057; /* Gris oscuro */
+    margin: 10px 0;
 }
 
-.main .btn-edit {
-    background-color: #62B2D7;
-    color: white;
-}
-
-.main .btn-edit:hover {
-    background-color: #6544bf;
-}
-.main .btn-danger {
-    background-color: #ef594e;
-    color: white;
-}
-
-.main .btn-danger:hover {
-    background-color: #ef594e;
-}
-
-.main .btn-primary {
-    background-color: #62B2D7;
-    color: white;
-}
-
-.main .btn-primary:hover {
-    background-color: white;
-}
-
-/* Contenedor del botón de agregar */
-.button-container {
-    text-align: center;
-}
-
-.button-container .btn {
-    background-color: #62B2D7;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+/* Lista de detalles */
+.success-container ul {
+    text-align: left;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    color: #212529; /* Gris más oscuro */
     font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    line-height: 1.6;
 }
 
-.button-container .btn:hover {
-    background-color: #62B2D7;
+/* Elementos de la lista */
+.success-container li {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 6px;
 }
 
-/* Estilo de la imagen de la mascota */
-.pet-image {
-    height: 100px;
-    object-fit: cover; /* Asegura que la imagen cubra el contenedor */
-    border-radius: 20%; /* Hace la imagen circular */
-    border: 1px solid #62B2D7; /* Borde alrededor de la imagen */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Negrita en los títulos */
+.success-container li strong {
+    color: #17a2b8; /* Azul para destacar títulos */
 }
 
-.search-container {
-    margin: 15px 0;
+/* Contenedor de botones */
+.button-container {
     display: flex;
-    justify-content: center;
-}
-  
-.search-input {
-    padding: 8px 100px;
-    width: 600px;
-    border: 1px solid #189ae0;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;  
-    color: #189ae0;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    gap: 15px;
 }
 
-.search-input::placeholder {
-    color: #189ae0; /* Cambia el color del texto del placeholder (morado) */
-    opacity: 1; /* Asegura que el placeholder sea completamente opaco (sin transparencia) */
-}
-
-
-/* Contenedor de las cartas */
-.cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px; /* Espacio entre tarjetas */
-    justify-content: center;
-    padding: 16px;
-}
-
-/* Estilo de cada tarjeta */
-.card {
-    background-color: #fff; /* Fondo blanco */
-    border: 1px solid #ddd; /* Borde gris claro */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    overflow: hidden; /* Ocultar contenido que sobresalga */
-    width: 300px; /* Ancho fijo */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s; /* Animaciones */
-}
-
-/* Hover en tarjeta */
-.card:hover {
-    transform: translateY(-5px); /* Elevar tarjeta */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra más intensa */
-}
-
-/* Imagen de la tarjeta */
-.card-image {
-    width: 100%; /* Imagen ocupa todo el ancho */
-    height: 200px; /* Altura fija */
-    object-fit: cover; /* Recorta la imagen para encajar */
-    border-bottom: 1px solid #ddd; /* Borde entre imagen y contenido */
-}
-
-/* Contenido de la tarjeta */
-.card-content {
-    padding: 16px; /* Espaciado interno */
-}
-
-/* Título de la tarjeta */
-.card-title {
-    font-size: 20px;
+/* Botones principales */
+.button-container .btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1em;
     font-weight: bold;
-    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Detalles de la tarjeta */
-.card-status, .card-raza, .card-edad, .card-enfermedad {
-    font-size: 14px;
-    color: #555;
-    margin: 4px 0;
+/* Botón primario (azul) */
+.button-container .btn-primary {
+    background-color: #17a2b8;
+    color: white;
+    border: 1px solid transparent;
 }
 
-/* Acciones de la tarjeta */
-.card-actions {
-    display: flex;
-    gap: 8px; /* Espaciado entre botones */
-    margin-top: 16px;
+.button-container .btn-primary:hover {
+    background-color: white;
+    color: #17a2b8;
+    border: 1px solid #17a2b8;
 }
 
-.card-actions .btn {
-    flex: 1; /* Botones ocupan el mismo ancho */
+/* Botón secundario (gris) */
+.button-container .btn-secondary {
+    background-color: #6c757d; /* Gris oscuro */
+    color: white;
+    border: 1px solid transparent;
+}
+
+.button-container .btn-secondary:hover {
+    background-color: white;
+    color: #6c757d;
+    border: 1px solid #6c757d;
+}
+
+/* Mensaje de error cuando no hay registro */
+.success-container p.error-message {
+    color: #dc3545; /* Rojo para el error */
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .success-container {
+        padding: 20px;
+    }
+
+    .success-container h1 {
+        font-size: 2em;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .button-container .btn {
+        width: 100%;
+    }
 }

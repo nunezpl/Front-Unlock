@@ -1,52 +1,24 @@
 <main class="main">
-    <div class="container text-center mt-5">
-        <!-- Icono de éxito -->
-        <div class="text-success mb-4">
-          <i class="bi bi-check-circle-fill" style="font-size: 4rem;"></i>
-        </div>
-      
-        <!-- Mensaje de éxito -->
-        <h3>¡Reserva Exitosa!</h3>
-      
-        <!-- Información del registro -->
-        <div class="card mx-auto mt-3" style="max-width: 400px;">
-          <div class="card-body">
-            <div class="mb-3">
-              <strong>Usuario:</strong>
-              <span>{{ registro.usuario.nombre }}</span>
-            </div>
-            <div class="mb-3">
-              <strong>Evento:</strong>
-              <span>{{ registro.evento.nombre }}</span>
-            </div>
-            <div class="mb-3">
-              <strong>Lugar:</strong>
-              <span>{{ registro.evento.ciudad }}</span>
-            </div>
-            <div class="mb-3">
-              <strong>Fecha del Evento:</strong>
-              <span>{{ registro.evento.fecha_hora }}</span>
-            </div>
-            <div class="mb-3">
-              <strong>Fecha de Registro:</strong>
-              <span>{{ registro.fechaRegistro }}</span>
-            </div>
-            <div class="mb-3">
-              <strong>Estado:</strong>
-              <span>{{ registro.estadoPago }}</span>
-            </div>
-          </div>
-        </div>
-      
-        <!-- Botones -->
-        <div class="mt-4">
-          <button class="btn btn-outline-primary me-2" (click)="onExit()">
-            <i class="bi bi-box-arrow-left"></i> Exit
-          </button>
-          <button class="btn btn-primary" (click)="onViewBooking()">
-            View booking
-          </button>
-        </div>
+  <div class="success-container">
+    <h1>Reserva Exitosa</h1>
+
+    <div *ngIf="registro; else noRegistro">
+      <p>¡Gracias por tu reserva!</p>
+      <p>Detalles de la reserva:</p>
+      <ul>
+        <li><strong>Evento:</strong> {{ registro.evento.nombre }}</li>
+        <li><strong>Lugar:</strong> {{ registro.evento.ciudad }}</li>
+        <li><strong>Fecha y Hora:</strong> {{ registro.evento.fecha_hora | date: 'short' }}</li>
+        <li><strong>Estado del Pago:</strong> {{ registro.estadoPago }}</li>
+        <li><strong>Fecha de Registro:</strong> {{ registro.fechaRegistro | date: 'short' }}</li>
+      </ul>
+      <div class="button-container">
+        <button class="btn btn-primary" (click)="onViewBooking()">Ver Reserva</button>
       </div>
-      
+    </div>
+
+    <ng-template #noRegistro>
+      <p>No hay información de la reserva. Por favor, vuelve a intentar.</p>
+    </ng-template>
+  </div>
 </main>

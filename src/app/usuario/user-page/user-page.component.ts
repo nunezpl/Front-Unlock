@@ -40,7 +40,7 @@ export class UserPageComponent {
 
   // Acción al hacer clic en "Entrar"
   entrarEvento(event: Evento): void {
-    this.actualizarEstado(event, 'activo'); // Cambia el estado a 'activo'
+    event.status =  'activo'; // Cambia el estado a 'activo'
     alert(`Entrando al evento: ${event.nombre}`);
 
     // Lógica para ir a la página de registro o éxito
@@ -49,15 +49,12 @@ export class UserPageComponent {
 
   // Acción al hacer clic en "Salir"
   salirEvento(event: Evento): void {
-    this.actualizarEstado(event, 'inactivo'); // Cambia el estado a 'inactivo'
+    event.status = 'inactivo'; // Cambia el estado a 'inactivo'
     alert(`Saliendo del evento: ${event.nombre}`);
 
     // Lógica para regresar a la página del usuario
     this.router.navigate(['/user']); // Ruta de la página de usuario
   }
 
-  // Método para actualizar el estado
-  actualizarEstado(event: Evento, estado: string): void {
-    event.status = estado.toLowerCase(); // Normaliza el estado
-  }
+  
 }

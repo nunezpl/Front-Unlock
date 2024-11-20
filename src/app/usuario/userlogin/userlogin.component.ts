@@ -26,7 +26,7 @@ export class UserloginComponent {
           next: (response) => {
             console.log('Inicio de sesión exitoso', response);
             // Redirigir a la página de perfil del propietario (owner) después de un inicio de sesión exitoso
-            const urlProfile = `/admin`;
+            const urlProfile = `/user`;
             this.router.navigate([urlProfile]);  // Redirigir a la URL construida
             
             // Mostrar un toast de éxito

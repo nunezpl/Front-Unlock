@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'alojamientos', component: AlojamientoCardComponent},
 
   { path: 'reserva', component: ReservaComponent},
-  { path: 'registro/exito', component: ExitosoComponent},
+  { path: 'registro/exitoso', component: ExitosoComponent},
 
   { path: 'admin', component: AdminPageComponent },
   { path: 'user', component: UserPageComponent}

@@ -2,6 +2,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Usuario } from '../usuario/usuario';
 import { Evento } from '../evento/evento';
 import { Registro } from '../registro/registro';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { EventoService } from '../service/evento.service';
 
 @Component({
   selector: 'app-reserva',
@@ -9,6 +12,13 @@ import { Registro } from '../registro/registro';
   styleUrls: ['./reserva.component.css']
 })
 export class ReservaComponent {
+
+  constructor(
+    private router: Router, 
+    private registroService: EventoService,
+    private snackBar: MatSnackBar
+  ) {}
+
   @Input() location: string = '';
   @Input() date: string | Date = new Date(); // Acepta `string` o `Date`
   @Input() evento: Evento | null = null; // El evento que se reserva
@@ -47,11 +57,20 @@ export class ReservaComponent {
         estadoPago: 'Pendiente',
       };
 
-      alert(`Reserva realizada para ${this.adultsCount} personas en ${this.location} el ${this.date}.`);
+      this.openSnackBar(`Reserva realizada para ${this.adultsCount} personas en ${this.location} el ${this.date}.`, 'Cerrar');
       this.onReservaRealizada.emit(registro);
+      this.registroService.setRegistro(registro); // Guardar el registro
+      this.router.navigate(['/registro/exitoso']);  // Redirigir a la URL construida
+
     } else {
       alert('No hay evento seleccionado para la reserva.');
-    }
+    }  }
+
+  // Método para abrir el snackbar
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000, // Duración en milisegundos
+    });
   }
 
   closeModal(): void {
