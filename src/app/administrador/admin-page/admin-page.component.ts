@@ -11,9 +11,7 @@ export class AdminPageComponent {
   constructor(private reporteService: ReporteService) {}
 
   generarReporte(): void {
-    const username = 'admin'; // Puedes reemplazarlo por un usuario dinámico.
-    const password = 'admin123'; // Puedes usar un input o valor seguro.
-
+    
     this.reporteService.generateReport(10).subscribe({
       next: (response) => {
         alert('Reporte generado exitosamente.');

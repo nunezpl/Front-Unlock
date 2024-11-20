@@ -23,11 +23,11 @@
           </div>
           <div class="card-actions">
             <!-- Botón que aparece si el evento está activo -->
-            <button *ngIf="event.status === 'Inactivo'" class="btn btn-info" (click)="entrarEvento(event)">
+            <button *ngIf="event.status === 'inactivo'" class="btn btn-info" (click)="entrarEvento(event)">
               Entrar
             </button>
             <!-- Botón que aparece si el evento está inactivo -->
-            <button *ngIf="event.status === 'Activo'" class="btn btn-danger" (click)="salirEvento(event)">
+            <button *ngIf="event.status === 'activo'" class="btn btn-danger" (click)="salirEvento(event)">
               Salir
             </button>
           </div>

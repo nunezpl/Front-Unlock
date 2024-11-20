@@ -17,12 +17,12 @@ export class UserloginComponent {
   
     onSubmit(loginForm: NgForm) {
       if (loginForm.valid) {
-        const username = loginForm.value.user;  // Obtener el usuario del formulario
+        const email = loginForm.value.email;  // Obtener el usuario del formulario
         const password = loginForm.value.password;  // Obtener la contraseña del formulario
     
-        console.log("Login: " + username + " - " + password);
+        console.log("Login: " + email + " - " + password);
     
-        this.loginService.loginUser(username, password).subscribe({
+        this.loginService.loginUser(email, password).subscribe({
           next: (response) => {
             console.log('Inicio de sesión exitoso', response);
             // Redirigir a la página de perfil del propietario (owner) después de un inicio de sesión exitoso
