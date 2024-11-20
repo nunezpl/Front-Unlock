@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgChartsModule } from 'ng2-charts';
 import { EventoCardComponent } from './evento/evento-card/evento-card.component';
 import { AlojamientoCardComponent } from './alojamiento/alojamiento-card/alojamiento-card.component';
 import { ContactoComponent } from './contacto/contacto.component';
@@ -45,6 +46,7 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
     NgbModule,
     FormsModule,
     CommonModule,
+    NgChartsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatSnackBarModule

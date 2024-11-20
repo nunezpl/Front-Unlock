@@ -1,6 +1,20 @@
 <main class="main">
-    <div class="admin-screen">
-        <h1>Hola Admin, genera tu reporte</h1>
-        <button class="btn btn-primary" (click)="generarReporte()">Generar Reporte</button>
-      </div>      
+  <div class="admin-screen">
+    <h1>Hola Admin</h1>
+    <div class="title-btn-container">
+      <button class="btn btn-primary" (click)="generarReporte()">Generar Reporte</button>
+    </div>
+
+    <div class="graph-container">
+      <div class="chart">
+        <h1>Eventos por mes</h1>
+        <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="'bar'"></canvas>
+      </div>
+
+      <div class="chart">
+        <h1>Personas por evento</h1>
+        <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [type]="'pie'"></canvas>
+      </div>
+    </div>
+  </div>
 </main>
