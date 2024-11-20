@@ -14,7 +14,7 @@ export class AdminPageComponent {
     const username = 'admin'; // Puedes reemplazarlo por un usuario dinámico.
     const password = 'admin123'; // Puedes usar un input o valor seguro.
 
-    this.reporteService.generateReport(username, password).subscribe({
+    this.reporteService.generateReport(10).subscribe({
       next: (response) => {
         alert('Reporte generado exitosamente.');
         console.log('Reporte:', response);

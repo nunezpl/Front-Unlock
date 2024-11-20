@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Alojamiento } from '../alojamiento';
+import { ActivatedRoute } from '@angular/router';
+import { AlojamientoService } from 'src/app/service/alojamiento.service';
 
 @Component({
   selector: 'app-alojamiento-card',
@@ -8,46 +10,44 @@ import { Alojamiento } from '../alojamiento';
 })
 export class AlojamientoCardComponent {
 
+  // Inyectar dependencias
+  constructor(
+    private route: ActivatedRoute,
+    private alojamientoService: AlojamientoService,
+    private cdr: ChangeDetectorRef
+  ) {}
+  
   searchQuery: string = '';
-  alojamientos: Alojamiento[] = [
-    {
-      id: 1,
-      name: 'Hotel Paraíso',
-      urlImage: 'https://via.placeholder.com/150',
-      ciudad: 'Cartagena',
-      direccion: 'Calle 1252',
-      convenio: 'hoteles',
-      price: 300000,
-      status: true,
-      aforo: 1110
-    },
-    {
-      id: 2,
-      name: 'Cabaña Alpina',
-      urlImage: 'https://via.placeholder.com/150',
-      ciudad: 'Villa de Leyva',
-      price: 200000,
-      status: true,
-      direccion: 'calle 432',
-      aforo: 200,
-      convenio: 'comida'
-    }
-    // Agrega más alojamientos aquí
-  ];
+  alojamientos: Alojamiento[] = [];
+
+  ngOnInit(): void{
+    this.route.paramMap.subscribe(params => {
+      this.alojamientoService.findAll().subscribe(
+        (data) => {
+          this.alojamientos = data; // Asignar los datos de eventos
+          this.cdr.detectChanges(); // Detectar cambios si es necesario
+          console.log('Eventos obtenidos', this.alojamientos)
+        },
+        (error) => {
+          console.error('Error al obtener los eventos', error); // Manejar errores
+        }
+      );
+    });
+  }
 
   // Filtrar alojamientos según el texto de búsqueda
   filteredAlojamientos(): Alojamiento[] {
     return this.alojamientos.filter(alojamiento =>
-      alojamiento.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+      alojamiento.nombre.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
 
   // Reservar alojamiento
   reserveAlojamiento(alojamiento: Alojamiento): void {
     if (alojamiento.status) {
-      alert(`Reserva realizada para el alojamiento: ${alojamiento.name} en ${alojamiento.ciudad}`);
+      alert(`Reserva realizada para el alojamiento: ${alojamiento.nombre} en ${alojamiento.ciudad}`);
     } else {
-      alert(`El alojamiento: ${alojamiento.name} no está disponible actualmente.`);
+      alert(`El alojamiento: ${alojamiento.nombre} no está disponible actualmente.`);
     }
   }
 }

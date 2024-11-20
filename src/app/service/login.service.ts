@@ -9,13 +9,13 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  loginAdmin(username: string, password: string): Observable<any> {
-    const body = { username, password };
+  loginAdmin(email: string, password: string): Observable<any> {
+    const body = { email, password };
     return this.http.post(`https://apigetawaycontainer-production.up.railway.app/auth/admin-login`, body, { responseType: 'text' });
   }
 
-  loginUser(username: string, password: string): Observable<any> {
-    const body = { username, password };
+  loginUser(email: string, password: string): Observable<any> {
+    const body = { email, password };
     return this.http.post(`https://apigetawaycontainer-production.up.railway.app/auth/login`, body, { responseType: 'text' });
   }
 

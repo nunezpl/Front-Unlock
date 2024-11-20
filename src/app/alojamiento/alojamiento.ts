@@ -1,11 +1,11 @@
 export interface Alojamiento {
     id: number;
-    name: string;
-    urlImage: string;
+    nombre: string;
+    imagen_url: string;
     direccion: string;
     ciudad: string;
     aforo: number;
     convenio: string;
-    price: number;
+    precio: number;
     status: Boolean;
 }

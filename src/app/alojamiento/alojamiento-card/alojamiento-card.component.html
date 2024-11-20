@@ -18,12 +18,12 @@
         <div class="cards-container">
             <!-- Genera las tarjetas filtrando por búsqueda -->
             <div *ngFor="let alojamiento of filteredAlojamientos()" class="card">
-                <img [src]="alojamiento.urlImage" alt="{{alojamiento.name}}" class="card-image">
+                <img [src]="alojamiento.imagen_url" alt="{{alojamiento.nombre}}" class="card-image">
                 <div class="card-content">
-                    <h3 class="card-title">{{alojamiento.name}}</h3>
+                    <h3 class="card-title">{{alojamiento.nombre}}</h3>
                     <p class="card-place">Lugar: {{alojamiento.ciudad}}</p>
                     <p class="card-date">Direccion: {{alojamiento.direccion}}</p>
-                    <p class="card-price">Precio: {{alojamiento.price | currency}}</p>
+                    <p class="card-price">Precio: {{alojamiento.precio | currency}}</p>
                     <p class="card-status">Estado: {{ alojamiento.status ? 'Disponible' : 'No disponible' }}</p>
                 </div>
                 <div class="card-actions">
