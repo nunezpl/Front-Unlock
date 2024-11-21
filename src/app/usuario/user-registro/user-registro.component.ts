@@ -25,11 +25,10 @@ export class UserRegistroComponent {
 
   formUser: Usuario = {
     nombre: '',
-    telefono: 0,
+    telefono: '',
     email: '',
     password: '',
-    estado: 'activo',
-    id: 0
+    estado: 'activo'
   };
 
   ngOnChanges() {
@@ -42,11 +41,10 @@ export class UserRegistroComponent {
   resetForm() {
     this.formUser = {
       nombre: '',
-      telefono: 0,
+      telefono: '',
       email: '',
       password: '',
-      estado: 'activo',
-      id: 0
+      estado: 'activo'
     };
   }
   addUserForm() {
@@ -61,7 +59,7 @@ export class UserRegistroComponent {
     console.log('Formulario enviado con los siguientes datos:', this.formUser);
     this.usuarioService.addUser(this.formUser).subscribe(response => {
       console.log('Respuesta del servidor:', response);
-      this.router.navigate(['/owner/all']);
+      this.router.navigate(['/eventos']);
     });
     this.resetForm();  // Opcional: Restablece el formulario
   }

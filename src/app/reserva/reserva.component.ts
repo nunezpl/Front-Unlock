@@ -27,10 +27,9 @@ export class ReservaComponent {
 
   // Usuario quemado
   usuario: Usuario = {
-    id: 1,
     nombre: 'Juan Pérez',
     email: 'juan.perez@mail.com',
-    telefono: 31212312,
+    telefono: '31212312',
     estado: 'activo',
     password: '123456'
   };

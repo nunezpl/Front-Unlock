@@ -16,7 +16,6 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Nombre</th>
                             <th>Estado</th>
                             <th></th>
@@ -24,7 +23,6 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let user of usuarios">
-                            <td>{{ user.id }}</td>
                             <td>{{ user.nombre }}</td>
                             <td>
                                 <span [class.active]="user.estado === 'Activo'"
@@ -33,7 +31,7 @@
                                 </span>
                                 
                             </td>
-                            <td><button (click)="toggleActive(user)">Toggle</button></td>
+                            <td><button (click)="toggleActive(user)">Cambiar estado</button></td>
                         </tr>
                     </tbody>
                 </table>
