@@ -1,22 +1,23 @@
 import { Component } from '@angular/core';
 import { ReporteService } from 'src/app/service/reporte.service';
 import { ChartData, ChartOptions } from 'chart.js';
+import { Usuario } from 'src/app/usuario/usuario';
 
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',
-  styleUrls: ['./admin-page.component.css']
+  styleUrls: ['./admin-page.component.css'],
 })
 export class AdminPageComponent {
-
+  
   constructor(private reporteService: ReporteService) {}
 
-   // Datos para la gráfica de barras
-   barChartData: ChartData<'bar'> = {
-    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+  // Datos para la gráfica de barras
+  barChartData: ChartData<'bar'> = {
+    labels: ['Agosto', 'Septiembre', 'Octubre', 'Noviembre'],
     datasets: [
       {
-        data: [65, 59, 80, 81, 56],
+        data: [59, 80, 81, 56],
         label: 'Ventas',
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
@@ -45,11 +46,11 @@ export class AdminPageComponent {
 
   // Datos para la gráfica de pastel
   pieChartData: ChartData<'pie'> = {
-    labels: ['Rojo', 'Azul', 'Verde'],
+    labels: ['Dentro', 'Afuera', 'Error'],
     datasets: [
       {
-        data: [300, 50, 100],
-        backgroundColor: ['#FF5733', '#33C6FF', '#56FF33'],
+        data: [300, 150, 20],
+        backgroundColor: ['#56FF33', '#33C6FF', '#FF5733'],
       },
     ],
   };
@@ -58,20 +59,19 @@ export class AdminPageComponent {
     responsive: true,
   };
 
+  // Generar reporte
   generarReporte(): void {
-    
     this.reporteService.generateReport(10).subscribe({
       next: (response) => {
         alert('Reporte generado exitosamente.');
         console.log('Reporte:', response);
-        // Aquí puedes manejar la respuesta como descargar un archivo o mostrar un mensaje.
       },
       error: (error) => {
         alert('Error al generar el reporte.');
         console.error('Error:', error);
-      }
+      },
     });
   }
 
-
+  
 }

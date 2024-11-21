@@ -1,0 +1,43 @@
+<main class="main">
+    <div class="admin-screen">
+        <h1>Usuarios registrados</h1>
+
+        <div class="user-container">
+            <div class="labels">
+                <label class="label activos">
+                    {{ cantidadActivos }} Activos
+                </label>
+                <label class="label no-activos">
+                    {{ cantidadInactivos }} No activos
+                </label>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of usuarios">
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.nombre }}</td>
+                            <td>
+                                <span [class.active]="user.estado === 'Activo'"
+                                    [class.inactive]="user.estado === 'Inactivo'">
+                                    {{ user.estado }}
+                                </span>
+                                
+                            </td>
+                            <td><button (click)="toggleActive(user)">Toggle</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

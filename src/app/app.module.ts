@@ -23,6 +23,8 @@ import { AdminPageComponent } from './administrador/admin-page/admin-page.compon
 import { UserPageComponent } from './usuario/user-page/user-page.component';
 import { CommonModule } from '@angular/common';
 import { AuthInterceptor } from './helpers/auth.interceptor';
+import { UserRegistroComponent } from './usuario/user-registro/user-registro.component';
+import { UserAllComponent } from './usuario/user-all/user-all.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
     UserloginComponent,
     ExitosoComponent,
     AdminPageComponent,
-    UserPageComponent
+    UserPageComponent,
+    UserRegistroComponent,
+    UserAllComponent
   ],
   imports: [
     BrowserModule,

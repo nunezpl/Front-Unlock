@@ -1,0 +1,117 @@
+/* Contenedor principal */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+}
+
+/* Contenedor de la pantalla de administración */
+.admin-screen {
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Título principal */
+h1 {
+    color: #62b2d7;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Contenedor de las etiquetas de usuarios activos/inactivos */
+.user-container {
+    width: 100%;
+}
+
+/* Contenedor de etiquetas */
+.labels {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Etiquetas */
+.label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Etiquetas para los estados de los usuarios */
+.label.active {
+    color: #62b2d7;
+}
+
+.label.inactive {
+    color: #ff6f61;
+}
+
+/* Contenedor de la tabla */
+.table-container {
+    width: 100%;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-container h3 {
+    font-size: 1.8em;
+    color: #333;
+    background-color: #62b2d7;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.table-container th {
+    background-color: #62b2d7;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.table-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-container tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table-container td button {
+    background-color: #62b2d7;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.table-container td button:hover {
+    background-color: #4a9ab3;
+}
+
+.table-container td button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

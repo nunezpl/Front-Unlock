@@ -10,6 +10,8 @@ import { UserloginComponent } from './usuario/userlogin/userlogin.component';
 import { ExitosoComponent } from './registro/exitoso/exitoso.component';
 import { AdminPageComponent } from './administrador/admin-page/admin-page.component';
 import { UserPageComponent } from './usuario/user-page/user-page.component';
+import { UserRegistroComponent } from './usuario/user-registro/user-registro.component';
+import { UserAllComponent } from './usuario/user-all/user-all.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -30,7 +32,9 @@ const routes: Routes = [
   { path: 'registro/exitoso', component: ExitosoComponent},
 
   { path: 'admin', component: AdminPageComponent },
-  { path: 'user', component: UserPageComponent}
+  { path: 'admin/users', component: UserAllComponent },
+  { path: 'user', component: UserPageComponent},
+  { path: 'user/registro', component: UserRegistroComponent}
 
 ];
 

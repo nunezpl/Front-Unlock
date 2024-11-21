@@ -1,8 +1,14 @@
 <main class="main">
   <div class="admin-screen">
     <h1>Hola Admin</h1>
+
     <div class="title-btn-container">
       <button class="btn btn-primary" (click)="generarReporte()">Generar Reporte</button>
+
+      <div class="header-right">
+        <button class="btn btn-primary" routerLink="/admin/users">Usuarios</button>
+      </div>
+
     </div>
 
     <div class="graph-container">
@@ -16,5 +22,6 @@
         <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [type]="'pie'"></canvas>
       </div>
     </div>
+
   </div>
 </main>
